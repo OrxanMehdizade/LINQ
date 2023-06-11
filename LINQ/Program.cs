@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 
@@ -59,6 +60,10 @@ List<Debtor> debtors = new() {
 
 // 2. rhyta.com və ya dayrep.com domenində poçtu olan borcluları göstərin
 
+//var chek = debtors.Where(c => c.Email.EndsWith("rhyta.com")|| c.Email.EndsWith("dayrep.com")).ToList();
+//showDebtors(chek);
+
+
 
 // 3. Yaşı 26-dan 36-ya qədər olan bborcluları göstərin.
 //DateTime now = DateTime.Now;
@@ -72,26 +77,51 @@ List<Debtor> debtors = new() {
 
 
 // 5. Tam adı 18 simvoldan çox olan və telefon nömrəsi 2 və ya daha çox yeddidən ibarət olan borcluları göstərin.
+//debtors.Where(a => a.FullName.Length >= 18 && a.Phone.Count(c => c == '7') >= 2).ToList().ForEach(d => Console.WriteLine(d));
+
+
+
 // 6. Qışda doğulan borcluları poçt indeksinə görə sıralayın (ünvanın sonunda 5 rəqəm).
+//debtors.Where(d => d.BirthDay.Month >= 12 || d.BirthDay.Month <= 2).OrderBy(d => d.Address.Substring(d.Address.Length-5)).ToList().ForEach(f => Console.WriteLine(f));
+
+
 // 7. Ən qısa adı olan borclular arasında ən uzun soyadlı borclunu göstərin.
 // 8. Borclular arasında ən populyar e-poçt domenini göstərin.
+
 // 9. Ən çox borcluların doğulduğu ili göstərin.
+//debtors.Where(d => d.Debt>5000).Select(d => $"Year-> {d.BirthDay.Year} - Debt-> {d.Debt}\n").ToList().ForEach(c => Console.WriteLine(c));
+
 // 10. Borc məbləğinə görə ilk 5 borcluyu göstərin.
+//debtors.Take(5).ToList().ForEach(c => Console.WriteLine(c));
+
+
 // 11. Bütün debitorların ümumi borcunu göstərin.
+//var checksum= debtors.Sum(d => d.Debt);
+//Console.WriteLine($"Total Debt-> {checksum}");
+
+
 // 12. İkinci Dünya Müharibəsindən sağ çıxmış insanların ad və soyadlarını göstərin.
+//debtors.Where(d => d.BirthDay.Year <= 1945).Select(d => d.FullName).ToList().ForEach(c => Console.WriteLine(c));
+
 // 13. SSRİ-nin dağılmasından sonra doğulanların adlarını və yaşlarını göstərin.
+//debtors.Where(d => d.BirthDay.Year >= 1991).Select(d => $"{d.FullName} - {DateTime.Now.Year-d.BirthDay.Year}").ToList().ForEach(c => Console.WriteLine(c));
+
 // 14. Təsəvvür edək ki, bütün borclular cari gündən hər ay 500 dollar borclarını qaytarmağa başlayıblar.
 // Növbəti doğum gününə qədər borcunu qaytarmağa nail olacaq borcluların siyahısını göstərin.
+//debtors.Where(b => b.Debt >= 0).Select(y => $"{y.BirthDay.Month + 1} - {y.Debt-500}").ToList().ForEach(c => Console.WriteLine(c));
+
+
 // 15. Adları və soyadları "smile" sözünü yaratmaq üçün istifadə edilə bilən borcluları göstərin.
 
 
-void showDebtors(IEnumerable<Debtor> debtors)
-{
-    foreach (var debtor in debtors)
-    {
-        Console.WriteLine($"\n{debtor}");
-    }
-}
+
+//void showDebtors(IEnumerable<Debtor> debtors)
+//{
+//    foreach (var debtor in debtors) 
+//    {
+//        Console.WriteLine($"\n{debtor}");
+//    }
+//}
 
 class Debtor
 {
