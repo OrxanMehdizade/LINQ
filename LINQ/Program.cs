@@ -106,13 +106,14 @@ List<Debtor> debtors = new() {
 // 13. SSRİ-nin dağılmasından sonra doğulanların adlarını və yaşlarını göstərin.
 //debtors.Where(d => d.BirthDay.Year >= 1991).Select(d => $"{d.FullName} - {DateTime.Now.Year-d.BirthDay.Year}").ToList().ForEach(c => Console.WriteLine(c));
 
-// 14. Təsəvvür edək ki, bütün borclular cari gündən hər ay 500 dollar borclarını qaytarmağa başlayıblar.
-// Növbəti doğum gününə qədər borcunu qaytarmağa nail olacaq borcluların siyahısını göstərin.
-//debtors.Where(b => b.Debt >= 0).Select(y => $"{y.BirthDay.Month + 1} - {y.Debt-500}").ToList().ForEach(c => Console.WriteLine(c));
+//// 14. Təsəvvür edək ki, bütün borclular cari gündən hər ay 500 dollar borclarını qaytarmağa başlayıblar.
+//// Növbəti doğum gününə qədər borcunu qaytarmağa nail olacaq borcluların siyahısını göstərin.
+//debtors.Where(b => b.Debt >= 0).Select(y => $"{y.BirthDay.Month + 1} - {y.Debt - 500}").ToList().ForEach(c => Console.WriteLine(c));
+
 
 
 // 15. Adları və soyadları "smile" sözünü yaratmaq üçün istifadə edilə bilən borcluları göstərin.
-
+//debtors.Where(d => "smile".Contains(d.FullName.ToLower())).ToList().ForEach(c => Console.WriteLine(c));
 
 
 //void showDebtors(IEnumerable<Debtor> debtors)
