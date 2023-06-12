@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-
+#region DebtorListi
 List<Debtor> debtors = new() {
             new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "530-662-7732", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
             new Debtor("Danielle W. Grier", DateTime.Parse("October 18, 1953"), "321-473-4178", "DanielleWGrier@rhyta.com", "1973 Stoneybrook Road Maitland, FL 32751", 3599),
@@ -52,47 +52,106 @@ List<Debtor> debtors = new() {
             new Debtor("Lakisha R. Forrest", DateTime.Parse("December 1, 1973"), "334-830-1181", "LakishaRForrest@armyspy.com", "3121 Quarry Drive Montgomery, AL 36117", 3088),
             new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "801-559-6347", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588)
         };
+#endregion
 
+#region 1 ci 
 // 1. Adı saitlə başlayan borcluları göstərin.
 //var saitlə = debtors.Where(d => "AIOUEƏİÖÜaıoueəiöü".Contains(d.FullName[0]));
 //showDebtors(saitlə);
 
+#endregion
 
+#region 2 ci 
 // 2. rhyta.com və ya dayrep.com domenində poçtu olan borcluları göstərin
 
 //var chek = debtors.Where(c => c.Email.EndsWith("rhyta.com")|| c.Email.EndsWith("dayrep.com")).ToList();
 //showDebtors(chek);
 
+#endregion
 
+#region 3 ci 
 
 // 3. Yaşı 26-dan 36-ya qədər olan bborcluları göstərin.
 //DateTime now = DateTime.Now;
 //var debtorsAge = debtors.Where(d => (now - d.BirthDay).TotalDays / 365 >= 26 && (now - d.BirthDay).TotalDays / 365 <= 36);
 //showDebtors(debtorsAge);
 
+#endregion
+
+#region 4 ci 
 
 // 4. Borcu 5000-dən çox olmayan borcluları göstərin.
 //var debtorsdebt = debtors.Where(d => d.Debt<5000);
 //showDebtors(debtorsdebt);
 
 
+#endregion
+
+#region 5 ci 
+
 // 5. Tam adı 18 simvoldan çox olan və telefon nömrəsi 2 və ya daha çox yeddidən ibarət olan borcluları göstərin.
+//if (debtors is not null)
+//{
 //debtors.Where(a => a.FullName.Length >= 18 && a.Phone.Count(c => c == '7') >= 2).ToList().ForEach(d => Console.WriteLine(d));
+//}
 
+#endregion
 
+#region 6 ci 
 
 // 6. Qışda doğulan borcluları poçt indeksinə görə sıralayın (ünvanın sonunda 5 rəqəm).
-//debtors.Where(d => d.BirthDay.Month >= 12 || d.BirthDay.Month <= 2).OrderBy(d => d.Address.Substring(d.Address.Length-5)).ToList().ForEach(f => Console.WriteLine(f));
+//if (debtors is not null)
+//{
+//    debtors.Where(d => d.BirthDay.Month >= 12 || d.BirthDay.Month <= 2).OrderBy(d => d.Address.Substring(d.Address.Length - 5)).ToList().ForEach(f => Console.WriteLine(f));
+//}
 
+#endregion
+
+#region 7 ci
 
 // 7. Ən qısa adı olan borclular arasında ən uzun soyadlı borclunu göstərin.
+//var smallestNameDebtors = debtors.OrderBy(d => d.FullName.Length).ToList();
+//if (debtors is not null)
+//{
+//    debtors.Where(d => d.FullName.Split(' ')[0].Length <= 4 && d.FullName.Split(' ')[1].Length >= 5).ToList().ForEach(c => Console.WriteLine(c));
+//}
+
+#endregion
+
+#region 8  ci
+
 // 8. Borclular arasında ən populyar e-poçt domenini göstərin.
 
-// 9. Ən çox borcluların doğulduğu ili göstərin.
-//debtors.Where(d => d.Debt>5000).Select(d => $"Year-> {d.BirthDay.Year} - Debt-> {d.Debt}\n").ToList().ForEach(c => Console.WriteLine(c));
+//var chek = debtors.Select(d => d.Email.Split('@')[1]).GroupBy(d => d).OrderByDescending(g => g.Count()).Select(g => g.Key).FirstOrDefault();
+//if(chek is not null)
+//{
+//    Console.WriteLine($"Populyar e-poçt domenini-> {chek}");
+//}
 
+
+#endregion
+
+#region 9 ci 
+
+// 9. Ən çox borcluların doğulduğu ili göstərin.
+//if (debtors is not null)
+//{
+//    debtors.Where(d => d.Debt > 5000).Select(d => $"Year-> {d.BirthDay.Year} - Debt-> {d.Debt}\n").ToList().ForEach(c => Console.WriteLine(c));
+//}
+
+#endregion
+
+#region 10 ci 
 // 10. Borc məbləğinə görə ilk 5 borcluyu göstərin.
-//debtors.Take(5).ToList().ForEach(c => Console.WriteLine(c));
+//if (debtors is not null)
+//{
+//    debtors.Take(5).ToList().ForEach(c => Console.WriteLine(c));
+//}
+
+
+#endregion
+
+#region 11 ci 
 
 
 // 11. Bütün debitorların ümumi borcunu göstərin.
@@ -100,29 +159,82 @@ List<Debtor> debtors = new() {
 //Console.WriteLine($"Total Debt-> {checksum}");
 
 
+
+#endregion
+
+#region 12 ci 
+
 // 12. İkinci Dünya Müharibəsindən sağ çıxmış insanların ad və soyadlarını göstərin.
-//debtors.Where(d => d.BirthDay.Year <= 1945).Select(d => d.FullName).ToList().ForEach(c => Console.WriteLine(c));
+
+//if (debtors is not null)
+//{
+//    debtors.Where(d => d.BirthDay.Year <= 1945).Select(d => d.FullName).ToList().ForEach(c => Console.WriteLine(c));
+//}
+#endregion
+
+#region 13 ci 
 
 // 13. SSRİ-nin dağılmasından sonra doğulanların adlarını və yaşlarını göstərin.
-//debtors.Where(d => d.BirthDay.Year >= 1991).Select(d => $"{d.FullName} - {DateTime.Now.Year-d.BirthDay.Year}").ToList().ForEach(c => Console.WriteLine(c));
+//if(debtors is not null)
+//{
+//    debtors.Where(d => d.BirthDay.Year >= 1991).Select(d => $"{d.FullName} - {DateTime.Now.Year - d.BirthDay.Year}").ToList().ForEach(c => Console.WriteLine(c));
+//}
+
+#endregion
+
+#region 14 ci 
+
 
 //// 14. Təsəvvür edək ki, bütün borclular cari gündən hər ay 500 dollar borclarını qaytarmağa başlayıblar.
 //// Növbəti doğum gününə qədər borcunu qaytarmağa nail olacaq borcluların siyahısını göstərin.
-//debtors.Where(b => b.Debt >= 0).Select(y => $"{y.BirthDay.Month + 1} - {y.Debt - 500}").ToList().ForEach(c => Console.WriteLine(c));
+//var siyahi = from m in debtors where m.BirthDay <= new DateTime(1950, 12, 31) select m;
+//foreach (var m in siyahi)
+//{
+//    var cixilanborc = 500;
+//    var kecentarixhsbi = (DateTime.Now.Year - m.BirthDay.Year) * 12 + DateTime.Now.Month - m.BirthDay.Month;
+//    var verilenborc = cixilanborc * kecentarixhsbi;
 
+//    if (m.Debt <= verilenborc)
+//    {
+//        m.Debt = 0;
+//    }
+//    else
+//    {
+//        m.Debt -= verilenborc;
+//    }
+//    Console.WriteLine(m);
+//}
 
+#endregion
+
+#region 15 ci 
 
 // 15. Adları və soyadları "smile" sözünü yaratmaq üçün istifadə edilə bilən borcluları göstərin.
-//debtors.Where(d => "smile".Contains(d.FullName.ToLower())).ToList().ForEach(c => Console.WriteLine(c));
+//if( debtors is not null)
+//{
+//    debtors.Where(d => "smile".Contains(d.FullName.ToLower())).ToList().ForEach(c => Console.WriteLine(c));
+//}
+
+#endregion
+
+#region showDebtors
 
 
 //void showDebtors(IEnumerable<Debtor> debtors)
 //{
-//    foreach (var debtor in debtors) 
+//    foreach (var debtor in debtors)
 //    {
-//        Console.WriteLine($"\n{debtor}");
+//        if (debtor is not null)
+//        {
+//            Console.WriteLine($"\n{debtor}");
+//        }
 //    }
 //}
+
+#endregion
+
+
+#region class Debtor
 
 class Debtor
 {
@@ -147,5 +259,7 @@ class Debtor
         return $"{this.FullName} {this.BirthDay.ToShortDateString()} {this.Phone} {this.Email} {this.Address} {this.Debt}";
     }
 }
+
+#endregion
 
 
